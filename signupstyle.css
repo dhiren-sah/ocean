@@ -1,0 +1,92 @@
+/* signupstyle.css */
+
+/* Set up the body with a simple, clean background, centered content, and full viewport height */
+body {
+    font-family: Arial, sans-serif; /* Set font for the entire page */
+    background-color: #f4f4f4; /* Light gray background color */
+    display: flex; /* Use Flexbox for easy centering of content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Style the header section, centering text and adding space below */
+header {
+    text-align: center; /* Center the header text */
+    margin-bottom: 20px; /* Add space below the header */
+}
+
+/* Style the main heading (h3) within the header */
+h3 {
+    font-size: 24px; /* Set a larger font size for the heading */
+    color: #333; /* Dark gray color for the heading text */
+}
+
+/* Style the main container for the form */
+main {
+    background-color: #fff; /* White background for the form container */
+    padding: 20px 40px; /* Add padding inside the container */
+    border-radius: 8px; /* Round the corners of the container */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    width: 350px; /* Set a fixed width for the form container */
+}
+
+/* Style the form element */
+form {
+    display: flex; /* Use Flexbox for form layout */
+    flex-direction: column; /* Stack form elements vertically */
+}
+
+/* Style text input fields (first name, last name, email, and password) */
+form input[type="text"], 
+form input[type="password"] {
+    margin: 10px 0; /* Add margin above and below each input */
+    padding: 10px; /* Add padding inside each input */
+    border-radius: 4px; /* Round the corners of the inputs */
+    border: 1px solid #ccc; /* Light gray border for inputs */
+    font-size: 16px; /* Set a readable font size for input text */
+}
+
+/* Style radio buttons for gender selection */
+form input[type="radio"] {
+    margin-right: 5px; /* Add space to the right of each radio button */
+}
+
+/* Style the submit button */
+button {
+    background-color: #5cb85c; /* Green background color for the button */
+    color: white; /* White text color for the button */
+    padding: 10px; /* Add padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Round the corners of the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 16px; /* Set a readable font size for the button text */
+    margin-bottom: 20px; /* Add space below the button */
+    align-self: flex-start; /* Align the button to the left within the form */
+}
+
+/* Change button background color on hover */
+button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}
+
+/* Style labels for form elements */
+form label {
+    font-size: 14px; /* Set a smaller font size for labels */
+    margin-bottom: 5px; /* Add space below each label */
+    color: #333; /* Dark gray color for label text */
+}
+
+/* Additional style for labels next to radio buttons */
+form input[type="radio"] + label {
+    margin-right: 15px; /* Add space to the right of radio button labels */
+    font-size: 14px; /* Set a smaller font size for radio button labels */
+}
+
+/* Add focus style for inputs to highlight them when selected */
+form input:focus {
+    outline: none; /* Remove the default outline */
+    border-color: #5cb85c; /* Green border color on focus */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); /* Add a subtle green glow on focus */
+}
