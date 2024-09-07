@@ -17,35 +17,46 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form was submitted
+// Check if the form was submitted using POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Retrieve and sanitize form data
+    // Validate and sanitize form inputs
     $first_name = $conn->real_escape_string(trim($_POST['first_name']));
     $last_name = $conn->real_escape_string(trim($_POST['last_name']));
     $email = $conn->real_escape_string(trim($_POST['email']));
-    $passcode = password_hash(trim($_POST['passcode']), PASSWORD_BCRYPT);
+    $passcode = trim($_POST['passcode']);
     $gender = $conn->real_escape_string(trim($_POST['gender']));
 
-    // Prepare and bind
+    // Check if the email is in a valid format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email format.");
+    }
+
+    // Hash the password
+    $hashed_passcode = password_hash($passcode, PASSWORD_BCRYPT);
+
+    // Prepare and bind the SQL query
     $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, passcode, gender) VALUES (?, ?, ?, ?, ?)");
     
+    // Check if the statement was prepared successfully
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
     
-    $stmt->bind_param("sssss", $first_name, $last_name, $email, $passcode, $gender);
+    // Bind parameters (s = string)
+    $stmt->bind_param("sssss", $first_name, $last_name, $email, $hashed_passcode, $gender);
 
-    // Execute the statement
+    // Execute the prepared statement
     if ($stmt->execute()) {
-        echo "ID created successfully";
+        echo "ID created successfully!";
     } else {
         echo "Error: " . $stmt->error;
     }
 
-    // Close statement and connection
+    // Close the statement and connection
     $stmt->close();
 }
 
+// Close the database connection
 $conn->close();
 ?>
