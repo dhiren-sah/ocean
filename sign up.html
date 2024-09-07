@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="signup/signupstyle.css">
+</head>
+<body>
+    <header>
+        <h3>Sign Up</h3>
+    </header>
+    <main>
+        <form action="submit_form.php" method="POST">
+            First Name: <input type="text" name="first_name" required><br><br>
+            Last Name: <input type="text" name="last_name" required><br><br>
+            Email: <input type="email" name="email" required><br><br>
+            Password: <input type="password" name="password" required><br><br>
+            Select gender: 
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female<br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
